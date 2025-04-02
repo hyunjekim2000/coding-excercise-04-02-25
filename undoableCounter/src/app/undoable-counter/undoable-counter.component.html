@@ -1,0 +1,26 @@
+<h1>Undoable Counter</h1>
+
+<div>
+  <button (click)="undo()" [disabled]="undoStack.length == 0">Undo</button>
+  <button (click)="redo()" [disabled]="redoStack.length == 0">Redo</button>
+</div>
+
+<div>
+  <button (click)="modifyCounter(-100)">-100</button>
+  <button (click)="modifyCounter(-10)">-10</button>
+  <button (click)="modifyCounter(-1)">-1</button>
+
+  {{ counter }}
+
+  <button (click)="modifyCounter(+1)">+1</button>
+  <button (click)="modifyCounter(+10)">+10</button>
+  <button (click)="modifyCounter(+100)">+100</button>
+</div>
+
+<h3>History</h3>
+
+<div>
+  <ul>
+    <li *ngFor="let item of history"> {{ item }}</li>
+  </ul>
+</div>
